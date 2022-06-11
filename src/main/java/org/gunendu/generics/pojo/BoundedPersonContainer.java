@@ -1,4 +1,4 @@
-package main.java.org.gunendu.snippet.pojo;
+package main.java.org.gunendu.generics.pojo;
 
 public class BoundedPersonContainer<T extends Person> {
 

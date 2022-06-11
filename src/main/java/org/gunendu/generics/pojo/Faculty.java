@@ -1,6 +1,6 @@
-package main.java.org.gunendu.snippet.pojo;
+package main.java.org.gunendu.generics.pojo;
 
-public class Student extends Person {
+public class Faculty extends Person {
     private String university;
 
     public String getUniversity() {

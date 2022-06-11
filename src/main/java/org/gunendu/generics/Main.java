@@ -1,11 +1,13 @@
-package main.java.org.gunendu.snippet;
+package main.java.org.gunendu.generics;
 
-import main.java.org.gunendu.snippet.pojo.BoundedPersonContainer;
-import main.java.org.gunendu.snippet.pojo.Faculty;
-import main.java.org.gunendu.snippet.pojo.Person;
-import main.java.org.gunendu.snippet.pojo.PersonContainer;
-import main.java.org.gunendu.snippet.pojo.PersonManager;
-import main.java.org.gunendu.snippet.pojo.Student;
+import main.java.org.gunendu.generics.pojo.BoundedPersonContainer;
+import main.java.org.gunendu.generics.pojo.Faculty;
+import main.java.org.gunendu.generics.pojo.Person;
+import main.java.org.gunendu.generics.pojo.PersonContainer;
+import main.java.org.gunendu.generics.pojo.PersonManager;
+import main.java.org.gunendu.generics.pojo.Student;
+import main.java.org.gunendu.generics.pojo.StudentsPair;
+import main.java.org.gunendu.generics.pojo.Util;
 
 import java.util.Arrays;
 
@@ -18,13 +20,15 @@ public class Main {
         Student student = new Student();
         student.setUniversity("MNNIT");
         student.setFirstName("Rajesh");
+        student.setLastName("Mallick");
 
         Student student1 = new Student();
         student1.setUniversity("NIT Warangal");
+        student1.setFirstName("Kamlesh");
+        student1.setLastName("Mallick");
 
         Faculty faculty = new Faculty();
         faculty.setUniversity("MNNIT");
-        faculty.setFirstName("Kamlesh");
 
         PersonManager personManager = new PersonManager();
         personManager.printList(Arrays.asList(student, new Student()));
@@ -38,6 +42,15 @@ public class Main {
         System.out.println("Person Container is " + boundedPersonContainer.getObj().getUniversity());
 
         System.out.println(boundedPersonContainer.concatStr(student, student1));
+
+        StudentsPair<String, String> studentsPair =
+                new StudentsPair<>(student.getFirstName(), student.getLastName());
+
+        StudentsPair<String , String > studentsPair1 =
+                new StudentsPair<>(student1.getFirstName(), student1.getLastName());
+
+        boolean match = Util.compareTo(studentsPair, studentsPair1);
+        System.out.println("Students pair does not match " + match);
     }
 }
 
